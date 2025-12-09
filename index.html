@@ -1,86 +1,198 @@
-<!DOCTYPE html>
-<html lang="th">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thanakrit Na Nakorn - Life Insurance Agent</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        .header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        .content {
-            padding: 20px;
-        }
-        .section {
-            margin-bottom: 20px;
-        }
-        .footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 5px 0;
-        }
-        .contact-form button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body>
-    <div class="header">
-        <h1>Thanakrit Na Nakorn</h1>
-        <p>Life Insurance Agent</p>
-    </div>
-    <div class="content">
-        <div class="section">
-            <h2>About Me</h2>
-            <p>Hello! My name is Thanakrit Na Nakorn, a dedicated life insurance agent with over 10 years of experience. I am passionate about helping individuals and families secure their future through comprehensive insurance plans. My goal is to provide personalized service and expert advice to ensure you get the coverage you need.</p>
+import React, { useState } from 'react';
+import { Users, MessageCircle, CheckCircle, Mail, Phone, LayoutGrid, Video, ArrowRight, MessageSquare } from 'lucide-react';
+
+const RateCard = () => {
+  // Tabs are simplified since we removed Partnership/Sponsorship for now, 
+  // but keeping the state structure in case you want to add them back later easily.
+  const [activeTab, setActiveTab] = useState('alacarte');
+
+  return (
+    <div className="min-h-screen bg-gray-50 font-sans text-gray-800">
+      {/* Header / Hero Section */}
+      <header className="bg-slate-900 text-white pt-20 pb-24 px-6 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-yellow-400 rounded-full blur-3xl opacity-5 -mr-20 -mt-20"></div>
+        <div className="max-w-4xl mx-auto relative z-10 text-center">
+          <div className="inline-block bg-yellow-400 text-slate-900 font-bold px-4 py-1 rounded-full text-sm mb-6">
+            MEDIA KIT 2026
+          </div>
+          <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
+            ลูกจ้างใจกล้า <span className="text-yellow-400">2.0</span>
+          </h1>
+          <p className="text-xl text-gray-300 font-light mb-10 max-w-2xl mx-auto">
+            คอมมูนิตี้มนุษย์เงินเดือน Gen Y-Z ที่แข็งแกร่งที่สุด<br/>
+            เปลี่ยนเรื่องบัดซบในออฟฟิศ... ให้เป็นโอกาสทางธุรกิจของคุณ
+          </p>
+          <div className="flex justify-center gap-4">
+            <a href="https://line.me/ti/p/C1CDJMiLbP" target="_blank" rel="noreferrer" className="flex items-center bg-green-500 text-white px-8 py-4 rounded-lg font-bold hover:bg-green-600 transition shadow-lg text-lg">
+              <MessageSquare className="mr-2" /> ติดต่อลงโฆษณา (LINE)
+            </a>
+          </div>
         </div>
-        <div class="section">
-            <h2>Services</h2>
-            <ul>
-                <li>Life Insurance Policies</li>
-                <li>Health Insurance Plans</li>
-                <li>Retirement Planning</li>
-                <li>Investment Advice</li>
-            </ul>
+      </header>
+
+      {/* Audience Focus Section */}
+      <div className="max-w-4xl mx-auto px-6 -mt-12 relative z-20">
+        <div className="bg-white rounded-xl shadow-xl p-8 flex flex-col md:flex-row items-center justify-between border-b-4 border-yellow-400">
+          <div className="flex items-center gap-4 mb-4 md:mb-0">
+            <div className="bg-slate-100 p-3 rounded-full text-slate-700">
+              <Users size={32} />
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-slate-800">800K+</div>
+              <div className="text-sm text-gray-500">ผู้ติดตาม (Followers)</div>
+            </div>
+          </div>
+          <div className="h-12 w-px bg-gray-200 hidden md:block"></div>
+          <div className="text-center md:text-left">
+            <h3 className="font-bold text-lg text-slate-800 mb-1">กลุ่มเป้าหมายหลัก: Gen Y - Z</h3>
+            <p className="text-gray-600 text-sm">
+              พนักงานออฟฟิศ, First Jobber, คนวัยสร้างตัว ที่มองหา "ทางรอด" และ "ตัวช่วย" ในการใช้ชีวิต
+            </p>
+          </div>
         </div>
-        <div class="section">
-            <h2>Contact Me</h2>
-            <form class="contact-form">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
+      </div>
+
+      {/* Services & Pricing Section */}
+      <section className="py-16 px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-slate-800">Service Rate Card</h2>
+            <p className="text-gray-500 mt-2">เลือกรูปแบบคอนเทนต์ที่เหมาะกับแบรนด์ของคุณ</p>
+          </div>
+
+          {/* Pricing Cards */}
+          <div className="grid md:grid-cols-3 gap-8">
+            
+            {/* 1. Cartoon Post */}
+            <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition duration-300 flex flex-col">
+              <div className="bg-slate-100 p-6">
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="font-bold text-xl text-slate-800">Cartoon Post</h3>
+                  <LayoutGrid className="text-slate-400" size={20} />
+                </div>
+                <p className="text-sm text-gray-500">ภาพเดี่ยว (Single Image)</p>
+              </div>
+              <div className="p-6 flex-grow flex flex-col">
+                <div className="mb-6">
+                  <p className="text-sm text-gray-500 mb-1">ราคาปกติ (Credit)</p>
+                  <p className="text-xl font-medium text-gray-400 line-through">฿20,000</p>
+                  <div className="mt-4 p-4 bg-red-50 rounded-lg border border-red-100">
+                    <p className="text-sm font-bold text-red-600 mb-1">🔥 พิเศษ! ชำระก่อนโพสต์</p>
+                    <p className="text-4xl font-extrabold text-slate-800">฿10,000</p>
+                  </div>
+                </div>
+                
+                <ul className="space-y-3 mb-8 flex-grow">
+                  <li className="flex items-start text-sm text-gray-600"><CheckCircle size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" /> ภาพการ์ตูน 1 ภาพ + แคปชั่น</li>
+                  <li className="flex items-start text-sm text-gray-600"><CheckCircle size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" /> Tie-in สินค้าแบบเนียนๆ ในเรื่องราว</li>
+                  <li className="flex items-start text-sm text-gray-600"><CheckCircle size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" /> แชร์ลง Facebook Page</li>
+                </ul>
+                <a href="https://line.me/ti/p/C1CDJMiLbP" target="_blank" rel="noreferrer" className="w-full py-3 bg-slate-800 text-white rounded-lg font-bold text-center hover:bg-slate-700 transition flex justify-center items-center">
+                  จองราคานี้ <ArrowRight size={16} className="ml-2" />
+                </a>
+              </div>
+            </div>
+
+            {/* 2. Album Story */}
+            <div className="bg-white rounded-xl shadow-md border-2 border-yellow-400 overflow-hidden hover:shadow-xl transition duration-300 relative transform md:-translate-y-4 flex flex-col">
+              <div className="absolute top-0 right-0 bg-yellow-400 text-xs font-bold px-3 py-1 text-slate-900">BEST SELLER</div>
+              <div className="bg-yellow-50 p-6">
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="font-bold text-xl text-slate-800">Album Story</h3>
+                  <LayoutGrid className="text-yellow-600" size={20} />
+                </div>
+                <p className="text-sm text-slate-600">อัลบั้มเล่าเรื่อง (Carousel)</p>
+              </div>
+              <div className="p-6 flex-grow flex flex-col">
+                <div className="mb-6">
+                  <p className="text-sm text-gray-500 mb-1">ราคาปกติ (Credit)</p>
+                  <p className="text-xl font-medium text-gray-400 line-through">฿30,000</p>
+                  <div className="mt-4 p-4 bg-red-50 rounded-lg border border-red-100">
+                    <p className="text-sm font-bold text-red-600 mb-1">🔥 พิเศษ! ชำระก่อนโพสต์</p>
+                    <p className="text-4xl font-extrabold text-slate-800">฿15,000</p>
+                  </div>
+                </div>
+
+                <ul className="space-y-3 mb-8 flex-grow">
+                  <li className="flex items-start text-sm text-gray-600"><CheckCircle size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" /> <strong>การ์ตูน 3-10 ภาพ</strong> เล่าเรื่องยาว</li>
+                  <li className="flex items-start text-sm text-gray-600"><CheckCircle size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" /> ปูเรื่องจาก Pain Point สู่ Solution (สินค้า)</li>
+                  <li className="flex items-start text-sm text-gray-600"><CheckCircle size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" /> รูปแบบที่คนชอบ Save & Share สูงที่สุด</li>
+                </ul>
+                <a href="https://line.me/ti/p/C1CDJMiLbP" target="_blank" rel="noreferrer" className="w-full py-3 bg-yellow-400 text-slate-900 rounded-lg font-bold text-center hover:bg-yellow-300 transition shadow-sm flex justify-center items-center">
+                  จองราคานี้ <ArrowRight size={16} className="ml-2" />
+                </a>
+              </div>
+            </div>
+
+            {/* 3. Quick Tips Clip */}
+            <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition duration-300 flex flex-col">
+              <div className="bg-slate-100 p-6">
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="font-bold text-xl text-slate-800">Quick Tips Clip</h3>
+                  <Video className="text-slate-400" size={20} />
+                </div>
+                <p className="text-sm text-gray-500">วิดีโอสั้น (Short Video)</p>
+              </div>
+              <div className="p-6 flex-grow flex flex-col">
+                <div className="mb-6">
+                  <p className="text-sm text-gray-500 mb-1">ราคาปกติ (Credit)</p>
+                  <p className="text-xl font-medium text-gray-400 line-through">฿30,000</p>
+                  <div className="mt-4 p-4 bg-red-50 rounded-lg border border-red-100">
+                    <p className="text-sm font-bold text-red-600 mb-1">🔥 พิเศษ! ชำระก่อนโพสต์</p>
+                    <p className="text-4xl font-extrabold text-slate-800">฿15,000</p>
+                  </div>
+                </div>
+
+                <ul className="space-y-3 mb-8 flex-grow">
+                  <li className="flex items-start text-sm text-gray-600"><CheckCircle size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" /> คลิป "แอดมินใจกล้า" ออกมาพูด</li>
+                  <li className="flex items-start text-sm text-gray-600"><CheckCircle size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" /> ให้ความรู้ + แนะนำสินค้า (High Trust)</li>
+                  <li className="flex items-start text-sm text-gray-600"><CheckCircle size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" /> ลง TikTok, Reels, YouTube Shorts</li>
+                </ul>
+                <a href="https://line.me/ti/p/C1CDJMiLbP" target="_blank" rel="noreferrer" className="w-full py-3 border border-slate-800 text-slate-800 rounded-lg font-medium text-center hover:bg-slate-50 transition flex justify-center items-center">
+                  จองราคานี้ <ArrowRight size={16} className="ml-2" />
+                </a>
+              </div>
+            </div>
+
+          </div>
         </div>
+      </section>
+
+      {/* Footer / Contact */}
+      <footer className="bg-slate-900 text-white py-12 px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-2xl font-bold mb-8">สนใจร่วมงาน ติดต่อเราได้เลยครับ</h2>
+          
+          <div className="flex flex-col items-center gap-6">
+            <div className="flex flex-col md:flex-row gap-8 text-lg">
+              <a href="mailto:nolongerslave@hotmail.com" className="flex items-center gap-2 hover:text-yellow-400 transition">
+                <Mail size={20} className="text-yellow-400" /> nolongerslave@hotmail.com
+              </a>
+              <div className="flex items-center gap-2">
+                <Phone size={20} className="text-yellow-400" /> 095-510-5237 (คุณพีท)
+              </div>
+              <div className="flex items-center gap-2">
+                <MessageCircle size={20} className="text-yellow-400" /> LINE ID: nolongerslave
+              </div>
+            </div>
+
+            <a 
+              href="https://line.me/ti/p/C1CDJMiLbP" 
+              target="_blank" 
+              rel="noreferrer"
+              className="mt-4 bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full font-bold shadow-lg transition transform hover:scale-105 flex items-center"
+            >
+              <MessageSquare className="mr-2" /> แอดไลน์คุยงานทันที
+            </a>
+          </div>
+
+          <div className="border-t border-gray-800 mt-12 pt-8 text-sm text-gray-500">
+            © 2026 ลูกจ้างใจกล้า. All rights reserved.
+          </div>
+        </div>
+      </footer>
     </div>
-    <div class="footer">
-        <p>&copy; 2024 Thanakrit Na Nakorn. All rights reserved.</p>
-    </div>
-</body>
-</html>
+  );
+};
+
+export default RateCard;
